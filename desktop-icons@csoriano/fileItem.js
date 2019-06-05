@@ -571,7 +571,7 @@ var FileItem = class {
         if (Clutter.get_default_text_direction() == Clutter.TextDirection.RTL)
             side = St.Side.RIGHT;
         this._menu = new PopupMenu.PopupMenu(this.actor, 0.5, side);
-        this._menu.addAction(_('Open'), () => this.doOpen());
+        this._menu.addAction(_('打开'), () => this.doOpen());
         switch (this._fileExtra) {
         case Prefs.FileType.NONE:
             if (!this._isDirectory)
@@ -593,17 +593,17 @@ var FileItem = class {
             break;
         case Prefs.FileType.USER_DIRECTORY_TRASH:
             this._menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-            this._menu.addAction(_('Empty Trash'), () => this._onEmptyTrashClicked());
+            this._menu.addAction(_('清空回收站'), () => this._onEmptyTrashClicked());
             break;
         default:
             break;
         }
         this._menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-        this._menu.addAction(_('Properties'), () => this._onPropertiesClicked());
+        this._menu.addAction(_('属性'), () => this._onPropertiesClicked());
         this._menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-        this._menu.addAction(_('Show in Files'), () => this._onShowInFilesClicked());
+        this._menu.addAction(_('在文件中查看'), () => this._onShowInFilesClicked());
         if (this._isDirectory && this.file.get_path() != null)
-            this._actionOpenInTerminal = this._menu.addAction(_('Open in Terminal'), () => this._onOpenTerminalClicked());
+            this._actionOpenInTerminal = this._menu.addAction(_('在终端中打开'), () => this._onOpenTerminalClicked());
 
         this._menuManager.addMenu(this._menu);
 
