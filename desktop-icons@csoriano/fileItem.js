@@ -575,15 +575,15 @@ var FileItem = class {
         switch (this._fileExtra) {
         case Prefs.FileType.NONE:
             if (!this._isDirectory)
-                this._actionOpenWith = this._menu.addAction(_('Open With Other Application'), () => this._doOpenWith());
+                this._actionOpenWith = this._menu.addAction(_('使用其他应用打开'), () => this._doOpenWith());
             else
                 this._actionOpenWith = null;
             this._menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-            this._actionCut = this._menu.addAction(_('Cut'), () => this._onCutClicked());
-            this._actionCopy = this._menu.addAction(_('Copy'), () => this._onCopyClicked());
+            this._actionCut = this._menu.addAction(_('剪切'), () => this._onCutClicked());
+            this._actionCopy = this._menu.addAction(_('复制'), () => this._onCopyClicked());
             if (this.canRename())
-                this._menu.addAction(_('Rename…'), () => this.doRename());
-            this._actionTrash = this._menu.addAction(_('Move to Trash'), () => this._onMoveToTrashClicked());
+                this._menu.addAction(_('重命名...'), () => this.doRename());
+            this._actionTrash = this._menu.addAction(_('移动到回收站'), () => this._onMoveToTrashClicked());
             if (this._isDesktopFile && !Extension.desktopManager.writableByOthers && !this._writableByOthers) {
                 this._menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
                 this._allowLaunchingMenuItem = this._menu.addAction(this._allowLaunchingText,
